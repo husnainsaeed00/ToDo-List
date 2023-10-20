@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://<husnainsaeed00>.github.io/<ToDo-List>",
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "webpack",
+    "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -17,4 +21,5 @@
   "dependencies": {
     "date-fns": "^2.30.0"
   }
+
 }

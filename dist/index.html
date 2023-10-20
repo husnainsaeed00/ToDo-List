@@ -1,59 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Alata&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <script defer src="main.js"></script>
-    <link rel="icon" href="./images/check_logo.png" type="icon" />
+    <link rel="icon" href="./images/check_logo.png" type="icon">
     <title>WhatToDo</title>
-  </head>
-  <body>
+</head>
+<body>
     <header class="logoArea">
-      <div class="hiddenMenu">
-        <span class="material-icons-round">menu</span>
-      </div>
-      <div class="logoLeft">
-        <img src="./images/check_logo.png" alt="Check_logo" />
-        <div class="logoText"><span>What</span>ToDo</div>
-      </div>
-      <div class="theme">
-        <input type="checkbox" id="checkbox" class="checkbox" checked="true" />
-        <label for="checkbox" class="label">
-          <img class="sun" src="./images/sun.png" />
-          <div class="theme-content">
-            <span class="material-icons-round moon">brightness_3</span>
-          </div>
-          <div class="ball"></div>
-        </label>
-      </div>
+        <div class="hiddenMenu">
+            <span class="material-icons-round">menu</span>
+        </div>
+        <div class="logoLeft">
+            <img src="./images/check_logo.png" alt="check logo">
+            <div class="logoText"><span>What</span>ToDo</div>
+        </div>
+        <div class="theme">
+            <input type="checkbox" class="checkbox" id="checkbox" checked = "true">
+            <label for="checkbox" class="label">
+                <img class="sun" src="images/sun.png">
+                <span class="material-icons-round moon">dark_mode</span>
+                <div class="ball"></div>
+            </label>
+        </div>
     </header>
-    <div clsss="content">
+    <div class="content">
         <div class="leftPanel">
             <div class="home">
                 <h2>Home</h2>
                 <div class="tile selected" id="allTasks">
-                    <img src="./images/inbox.png" alt="home">
+                    <img src="images/inbox.png" alt="inbox">
                     <div data-name>All Tasks</div>
                 </div>
-                <div class="tile">
-                    <img src="./images/today1.png" alt="today">
+                <div class="tile" id="today">
+                    <img src="images/today1.png" alt="today">
                     <div data-name>Today</div>
                 </div>
-                <div class="tile">
-                    <img src="./images/week2.png" alt="week2">
+                <div class="tile" id="thisWeek">
+                    <img src="images/week2.png">
                     <div data-name>Next 7 Days</div>
                 </div>
-                <div class="tile">
+                <div class="tile" id="important">
                     <img src="images/star.png" alt="star">
                     <div data-name>Important</div>
                 </div>
@@ -65,14 +57,15 @@
                         <span class="material-icons-round">menu</span>
                     </div>
                     <div class="inputField">
-                        <input type="text" id="projectInput" placeholder="Please Enter the Project.." maxlength="24"/>
+                        <input type="text" id="projectInput" placeholder="Enter Project Name" maxlength="24">
                         <div class="formButtons">
-                            <input type="submit" value="add" class="projectSubmitBtn"/>
-                            <input type="button" value="cancel" class="projectSubmitBtn"/>
+                            <input type="submit" class="projectSubmitBtn" value="Add">
+                            <input type="button" class="projectCancelBtn" value="Cancel">
                         </div>
                     </div>
                 </form>
                 <button id="addProject"><span class="material-icons-round">add_circle_outlined</span>Add Project</button>
+                <!-- hidden pop up option -->
                 <div class="option hidden" id="projectOption">
                     <button>Rename</button>
                     <button>Delete</button>
@@ -90,15 +83,58 @@
                         </div>
                     </div>
                 </form>
+            </div>    
+        </div>
+        <div id="rightPanel" class="rightPanel">
+            <div class="title">All Tasks</div>
+            <div class="list-todo">
+                <ul>
+                </ul>
+                <!-- hidden pop up option -->
+                <div class="option hidden" id="listOption">
+                    <button id="listEdit">Edit</button>
+                    <button id="listDelete">Delete</button>
+                </div>
+                <!-- hidden pop up edit task form  -->
+                <form id="editListForm" class="hidden" autocomplete="off">
+                    <div class="inputField">
+                        <label>Title:</label>
+                        <input type="text" id="editListTitle" placeholder="What to do?">
+                        <label>Details(optional):</label>
+                        <textarea type="text" id="editListInputDetail" placeholder="eg: I'm just gonna procrastinate, aren't I?" wrap="hard"></textarea>
+                        <label>Date:</label>
+                        <input type="date" id="editListInputDate" >
+                        <div class="formButtons">
+                            <input type="submit" class="editTaskSubmitBtn" value="Add">
+                            <input type="button" class="editTaskCancelBtn" value="Cancel">
+                        </div>
+                    </div>
+                </form>
+                <!-- hidden pop up adding task form -->
+                <form id="listForm" class="hidden" autocomplete="off">
+                    <div class="inputField">
+                        <label>Title:</label>
+                        <input type="text" id="listInput" placeholder="What to do?">
+                        <label>Details(optional):</label>
+                        <textarea type="text" id="listInputDetail" placeholder="eg: I'm just gonna procrastinate, aren't I?" wrap="hard"></textarea>
+                        <label>Date:</label>
+                        <input type="date" id="listInputDate" >
+                        <div class="formButtons">
+                            <input type="submit" class="listSubmitBtn" value="Add">
+                            <input type="button" class="listCancelBtn" value="Cancel">
+                        </div>
+                    </div>
+                </form>
+                <button id="addList"><span class="material-icons-round">add_circle_outlined</span>Add Task</button>
             </div>
         </div>
     </div>
-<footer>
+    <footer>
         <div>Icons by <a target="_blank" href="https://icons8.com">Icons8</a></div>
         |
-        <a href="https://github.com/khunhour/todo_list/tree/main"><img src="./images/github.png"></a>
+        <a href="https://github.com/husnainsaeed00"><img src="./images/github.png"></a>
         |
-        <div>Visit My Github</div>
+        <div>Husnain Saeed</div>
     </footer>
-  </body>
+</body>
 </html>

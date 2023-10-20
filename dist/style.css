@@ -42,9 +42,9 @@ body.light{
     justify-content: space-between;
     align-items: center;
     background-color: var(--bgColor3);
-    font-size:2.2rem;
+    font-size:2.5rem;
     padding:10px 20px;
-    font-weight: 500;
+    font-weight: 900;
     border-bottom: solid 2px var(--accentDark);
 }
 .hiddenMenu{
@@ -95,7 +95,7 @@ body.light{
     width: 80px;
     box-sizing: border-box;
     position: relative;
-    transform:scale(1);
+    transform:scale(0.8);
     transition: background-color 0.2s ease-in;
     border: solid 3px var(--accentDark);
     cursor: pointer;
@@ -105,18 +105,13 @@ body.light{
     position: absolute;
 }
 .sun{
-    transform: scale(1);
+    transform: scale(1.3);
     width:24.7px;
 }
 .moon{
     color:rgb(86, 152, 163);
-    transform: scale(.4);
-    
+    transform: scale(1.3);
 }
-.material-icons-round {
-    font-family: 'Material Icons';
-}
-
 .ball{
     position: absolute;
     width:25px;
@@ -130,12 +125,20 @@ body.light{
 
 /* plus meaning target the node after it */
 .checkbox:checked + .label .ball{            
-    transform: translate(38px);
+    transform: translate(37px);
     background-color: var(--accentDark);
     border:solid 4px var(--bgColor3);
 }
 .checkbox:checked + label{
     background-color: var(--bgColor3);
+}
+
+/* css for content below logo */
+.content{
+    display:flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    
 }
 
 /* css for .leftPanel */
@@ -214,6 +217,8 @@ form:hover{
 .selected:hover{
     background-color: #1f8d4d7a !important;
 }
+
+
 /* css for editProject part */
 .editContainer{
     display: flex;
@@ -437,6 +442,7 @@ ul .material-icons-round{
     background: white;
     border-radius: 50%;
 }
+
 /* edit form css */
 #editListForm{
     background-color: transparent;
